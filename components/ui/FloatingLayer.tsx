@@ -50,14 +50,14 @@ const FLOATING_ITEMS: FloatingItem[] = [
     isCryptoBox: true,
   },
 
-  // 2. Box 2 with 3D USDT Logo (Lower Right, positioned below Today's rate CTA button with breathing space)
+  // 2. Box 2 with 3D USDT Logo (Translucent Diamond Shape Housing USDT Coin, positioned below Today's rate CTA button)
   {
     id: "box-usdt",
     src: "/assets/3d/shape-diamond-2.webp",
     coinSrc: "/assets/3d/coin-usdt.webp",
     alt: "USDT 3D Box",
     layer: "near",
-    initialTop: "18%",
+    initialTop: "15%",
     initialRight: "1.5%",
     width: 112,
     height: 112,
@@ -342,7 +342,7 @@ export const FloatingLayer: React.FC = () => {
       {/* 4. Autonomous Dynamically Animated 3D Objects (No Parallax) */}
       {FLOATING_ITEMS.map((item) => {
         const layerStyles = item.isCryptoBox
-          ? "opacity-[0.92] drop-shadow-[0_12px_36px_rgba(0,0,0,0.85)] scale-55 sm:scale-80 md:scale-100 origin-center"
+          ? "opacity-[0.95] drop-shadow-[0_12px_36px_rgba(0,0,0,0.85)] scale-65 sm:scale-80 md:scale-100 origin-center"
           : item.layer === "far"
           ? "hidden sm:block blur-[2px] opacity-[0.25] scale-75 sm:scale-90"
           : "hidden sm:block opacity-[0.55] scale-80 sm:scale-95";
