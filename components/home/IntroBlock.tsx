@@ -59,20 +59,20 @@ export const IntroBlock: React.FC = () => {
 
   return (
     <div className="relative z-10 text-center max-w-3xl mx-auto px-4 pt-16 sm:pt-24 pb-4 flex flex-col items-center">
-      {/* 3D Panda Seated with Phone (Far Right Desktop Gutter - Never Touches Text) */}
+      {/* 3D Panda Seated with Phone (Right side hero accent with luxury green glow & seamless gradient mask) */}
       <div
-        className="hidden xl:block absolute -right-44 2xl:-right-60 top-4 2xl:top-0 w-[340px] 2xl:w-[400px] h-[420px] 2xl:h-[480px] pointer-events-none select-none z-0"
+        className="hidden md:block absolute -right-6 md:-right-16 lg:-right-32 xl:-right-44 top-2 md:top-6 lg:top-2 w-[220px] md:w-[280px] lg:w-[340px] xl:w-[380px] h-[280px] md:h-[350px] lg:h-[420px] xl:h-[460px] pointer-events-none select-none z-0"
         style={{
           animation: "heroPandaLevitate 8s ease-in-out infinite alternate",
         }}
       >
         {/* Soft green ambient backlight glow behind panda */}
         <div
-          className="absolute inset-0 m-auto w-[75%] h-[75%] rounded-full pointer-events-none opacity-80"
+          className="absolute inset-0 m-auto w-[80%] h-[80%] rounded-full pointer-events-none opacity-75"
           style={{
             background:
-              "radial-gradient(circle at 50% 50%, rgba(47, 203, 110, 0.22) 0%, rgba(20, 80, 50, 0.08) 50%, transparent 75%)",
-            filter: "blur(42px)",
+              "radial-gradient(circle at 50% 50%, rgba(47, 203, 110, 0.25) 0%, rgba(20, 80, 50, 0.08) 55%, transparent 75%)",
+            filter: "blur(40px)",
           }}
         />
 
@@ -81,9 +81,9 @@ export const IntroBlock: React.FC = () => {
           className="relative w-full h-full"
           style={{
             maskImage:
-              "linear-gradient(to bottom, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)",
+              "linear-gradient(to bottom, black 70%, rgba(0,0,0,0.3) 88%, transparent 100%)",
             WebkitMaskImage:
-              "linear-gradient(to bottom, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)",
+              "linear-gradient(to bottom, black 70%, rgba(0,0,0,0.3) 88%, transparent 100%)",
           }}
         >
           <Image
@@ -91,8 +91,8 @@ export const IntroBlock: React.FC = () => {
             alt="dPanda mascot seated with smartphone"
             fill
             priority
-            className="object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.85)]"
-            sizes="(max-width: 1024px) 320px, (max-width: 1280px) 390px, 440px"
+            className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+            sizes="(max-width: 768px) 220px, (max-width: 1024px) 280px, (max-width: 1280px) 340px, 380px"
           />
         </div>
       </div>
