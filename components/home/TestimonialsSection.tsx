@@ -95,6 +95,9 @@ const TESTIMONIALS: Testimonial[] = [
 export const TestimonialsSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartX = useRef<number | null>(null);
   const total = TESTIMONIALS.length;
 
   const handleNext = useCallback(() => {
@@ -105,23 +108,50 @@ export const TestimonialsSection: React.FC = () => {
     setCurrentIndex((prev) => (prev - 1 + total) % total);
   }, [total]);
 
-  // Auto-switching loop (switches every 4 seconds)
+  // Pointer drag/swipe handlers
+  const handlePointerDown = (e: React.PointerEvent) => {
+    setIsDragging(true);
+    dragStartX.current = e.clientX;
+    setDragOffset(0);
+    setIsPaused(true);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDragging || dragStartX.current === null) return;
+    const diff = e.clientX - dragStartX.current;
+    setDragOffset(diff);
+  };
+
+  const handlePointerEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    if (dragOffset < -40) {
+      handleNext();
+    } else if (dragOffset > 40) {
+      handlePrev();
+    }
+    setDragOffset(0);
+    dragStartX.current = null;
+    setIsPaused(false);
+  };
+
+  // Auto-switching loop: 2 seconds
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || isDragging) return;
     const interval = setInterval(() => {
       handleNext();
-    }, 4000);
+    }, 2000);
     return () => clearInterval(interval);
-  }, [isPaused, handleNext]);
+  }, [isPaused, isDragging, handleNext]);
 
   return (
     <section
       aria-label="What Our Clients Say about dPanda"
       className="relative w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 select-none"
       onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onTouchStart={() => setIsPaused(true)}
-      onTouchEnd={() => setIsPaused(false)}
+      onMouseLeave={() => {
+        if (!isDragging) setIsPaused(false);
+      }}
     >
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3 mb-10 sm:mb-12">
@@ -134,16 +164,28 @@ export const TestimonialsSection: React.FC = () => {
         </p>
       </div>
 
-      {/* Testimonial Cards Carousel */}
-      <div className="relative overflow-hidden">
+      {/* Testimonial Cards Carousel with Drag / Swipe */}
+      <div
+        className="relative overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerEnd}
+        onPointerCancel={handlePointerEnd}
+      >
         {/* Mobile View: Single Sliding Card */}
         <div className="md:hidden">
           <div
-            className="flex transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            className={`flex ${
+              isDragging
+                ? "transition-none"
+                : "transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            }`}
+            style={{
+              transform: `translateX(calc(-${currentIndex * 100}% + ${dragOffset}px))`,
+            }}
           >
             {TESTIMONIALS.map((item) => (
-              <div key={item.id} className="w-full shrink-0 px-1">
+              <div key={item.id} className="w-full shrink-0 px-1 pointer-events-none">
                 <div className="relative rounded-[24px] bg-gradient-to-b from-[rgba(16,38,28,0.60)] via-[rgba(9,22,16,0.50)] to-[rgba(4,10,7,0.70)] border border-[#2FCB6E]/30 p-6 backdrop-blur-[24px] shadow-[0_16px_40px_rgba(0,0,0,0.7),0_0_20px_rgba(47,203,110,0.10)] flex flex-col justify-between min-h-[260px]">
                   {/* Top Specular Rim */}
                   <div className="absolute inset-x-6 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#7CF0A8]/50 to-transparent pointer-events-none rounded-t-[24px]" />
@@ -202,16 +244,20 @@ export const TestimonialsSection: React.FC = () => {
         {/* Desktop / Tablet View: 3-Card Carousel Track */}
         <div className="hidden md:block">
           <div
-            className="flex transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] -mx-3"
+            className={`flex -mx-3 ${
+              isDragging
+                ? "transition-none"
+                : "transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            }`}
             style={{
-              transform: `translateX(-${currentIndex * 33.3333}%)`,
+              transform: `translateX(calc(-${currentIndex * 33.3333}% + ${dragOffset}px))`,
             }}
           >
             {[...TESTIMONIALS, ...TESTIMONIALS].map((item, idx) => {
               const activeIndex = currentIndex % total;
               const isLeadCard = idx % total === activeIndex;
               return (
-                <div key={`${item.id}-${idx}`} className="w-1/3 shrink-0 px-3">
+                <div key={`${item.id}-${idx}`} className="w-1/3 shrink-0 px-3 pointer-events-none">
                   <div
                     className={`relative rounded-[26px] bg-gradient-to-b from-[rgba(16,38,28,0.55)] via-[rgba(9,22,16,0.45)] to-[rgba(4,10,7,0.65)] border ${
                       isLeadCard

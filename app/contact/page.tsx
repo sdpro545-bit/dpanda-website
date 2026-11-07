@@ -5,7 +5,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { MessageCircle, Instagram, Globe, Clock, ShieldCheck } from "lucide-react";
+import { MessageCircle, Instagram, Clock, ShieldCheck } from "lucide-react";
 
 export const metadata = {
   title: "Contact dPanda.ng — Trade Desk & Channels",
@@ -68,9 +68,9 @@ export default function ContactPage() {
                 Direct trade execution, rate confirmation, and bank settlement.
               </p>
             </div>
-            <div className="p-4 rounded-[20px] bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] space-y-1 font-mono text-sm">
-              <div className="text-[#2FCB6E]">Local: {BRAND.whatsappNumberLocal}</div>
-              <div className="text-[#86868B] text-xs">Intl: +{BRAND.whatsappNumberIntl}</div>
+            <div className="p-4 rounded-[20px] bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] flex items-center gap-3 font-mono text-base text-[#2FCB6E]">
+              <MessageCircle className="w-5 h-5 text-[#2FCB6E] shrink-0" />
+              <span>{BRAND.whatsappNumberLocal}</span>
             </div>
           </div>
 
@@ -104,7 +104,7 @@ export default function ContactPage() {
                 className="w-full px-4 py-2.5 rounded-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.16)] text-xs text-[#F5F5F7] font-medium flex items-center gap-3 transition-colors"
               >
                 <Instagram className="w-4 h-4 text-[#86868B]" />
-                <span>Instagram ({BRAND.instagramHandle})</span>
+                <span>{BRAND.instagramHandle}</span>
               </a>
               <a
                 href={`https://x.com/${BRAND.xHandle.replace("@", "")}`}
@@ -113,16 +113,7 @@ export default function ContactPage() {
                 className="w-full px-4 py-2.5 rounded-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.16)] text-xs text-[#F5F5F7] font-medium flex items-center gap-3 transition-colors"
               >
                 <span className="font-bold text-xs text-[#86868B]">𝕏</span>
-                <span>X / Twitter ({BRAND.xHandle})</span>
-              </a>
-              <a
-                href={`https://${BRAND.domain}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full px-4 py-2.5 rounded-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.16)] text-xs text-[#F5F5F7] font-medium flex items-center gap-3 transition-colors"
-              >
-                <Globe className="w-4 h-4 text-[#2FCB6E]" />
-                <span>{BRAND.websiteDisplay}</span>
+                <span>{BRAND.xHandle}</span>
               </a>
             </div>
           </div>
