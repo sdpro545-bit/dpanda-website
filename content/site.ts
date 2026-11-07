@@ -33,7 +33,7 @@ export const SITE_COPY = {
         amount: "Amount",
         payout: "You get",
       },
-      cta: "Trade this on WhatsApp",
+      cta: "Trade Now",
       footnotePrefix: "Rate set at",
       footnoteSuffix: "Final rate is confirmed on WhatsApp.",
     },

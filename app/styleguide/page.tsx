@@ -64,7 +64,7 @@ export default function StyleguidePage() {
         <h2 className="text-2xl font-heading font-bold text-mint-200">2. Button Primitives (Pill Language)</h2>
         <div className="flex flex-wrap items-center gap-4 p-6 rounded-card border border-glass-bd bg-glass-bg">
           <Button variant="solid-yellow" size="md">
-            Trade this on WhatsApp
+            Trade Now
           </Button>
           <Button variant="solid-green" size="md">
             Explore Services
