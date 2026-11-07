@@ -1,0 +1,49 @@
+/* dPanda.ng Brand Design Tokens */
+/* Apple Product Page Restraint: Quiet, Dark, Spacious, Premium */
+
+:root {
+  /* Page Background Gradient (Near-Black with barely perceptible green) */
+  --bg-top: #020605;
+  --bg-mid: #010403;
+  --bg-bottom: #000000;
+  --footer-bg: #010504;
+
+  /* Glass Surface Tokens */
+  --surface: rgba(255, 255, 255, 0.03);       /* 3% white card fill */
+  --surface-hover: rgba(255, 255, 255, 0.06); /* hover fill */
+  --surface-bd: rgba(255, 255, 255, 0.06);    /* hairline border */
+  --surface-bd-active: rgba(47, 203, 110, 0.4);
+
+  /* Green Accent Palette (Used ONLY for CTA, active toggle/link, rim lights) */
+  --green-accent: #2FCB6E;  /* Deeper primary CTA fill & active indicator */
+  --green-rim: #7CF0A8;     /* Subtle rim light on 3D tiles */
+  --green-400: #2FCB6E;     /* Shared alias for primary green */
+  --mint-200: #7CF0A8;      /* Shared alias for rim light */
+
+  /* Yellow Accent (Payout figures only) */
+  --yellow-400: #FFD62E;
+
+  /* Typography Colors (Apple standard) */
+  --text: #F5F5F7;           /* Primary text */
+  --text-secondary: #86868B; /* Secondary body */
+  --text-tertiary: #6E6E73;  /* Tertiary captions/labels */
+  --text-dim: #86868B;
+  --text-faint: #6E6E73;
+
+  /* Radii */
+  --radius-button: 980px;    /* Apple pill shape */
+  --radius-pill: 980px;
+  --radius-tag: 980px;
+  --radius-tile: 18px;       /* 3D Icon tile */
+  --radius-card: 28px;       /* Refined 28px card radius */
+
+  /* Typography Stack */
+  --font-heading: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
+  --font-body: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
+
+  /* Easing & Timing (Apple fluid curves) */
+  --ease-primary: cubic-bezier(0.28, 0.11, 0.32, 1);
+  --ease-reveal: cubic-bezier(0.28, 0.11, 0.32, 1);
+  --duration-reveal: 900ms;
+  --duration-hover: 0.25s;
+}
