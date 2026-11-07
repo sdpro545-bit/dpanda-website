@@ -66,9 +66,9 @@ export const IntroBlock: React.FC = () => {
 
   return (
     <div className="relative z-10 text-center max-w-3xl mx-auto px-4 pt-16 sm:pt-24 pb-4 flex flex-col items-center">
-      {/* 3D Panda Seated with Phone (Right side hero accent with luxury green glow & seamless gradient mask) */}
+      {/* 3D Panda Seated with Phone (Hero accent with luxury green glow & seamless gradient mask) */}
       <div
-        className="hidden md:block absolute -right-6 md:-right-16 lg:-right-32 xl:-right-44 top-2 md:top-6 lg:top-2 w-[220px] md:w-[280px] lg:w-[340px] xl:w-[380px] h-[280px] md:h-[350px] lg:h-[420px] xl:h-[460px] pointer-events-none select-none z-0"
+        className="block absolute -right-2 sm:-right-6 md:-right-16 lg:-right-32 xl:-right-44 top-2 sm:top-2 md:top-6 lg:top-2 w-[120px] sm:w-[180px] md:w-[280px] lg:w-[340px] xl:w-[380px] h-[150px] sm:h-[220px] md:h-[350px] lg:h-[420px] xl:h-[460px] pointer-events-none select-none z-0"
         style={{
           animation: "heroPandaLevitate 8s ease-in-out infinite alternate",
         }}
@@ -99,7 +99,7 @@ export const IntroBlock: React.FC = () => {
             fill
             priority
             className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
-            sizes="(max-width: 768px) 220px, (max-width: 1024px) 280px, (max-width: 1280px) 340px, 380px"
+            sizes="(max-width: 640px) 120px, (max-width: 768px) 180px, (max-width: 1024px) 280px, (max-width: 1280px) 340px, 380px"
           />
         </div>
       </div>

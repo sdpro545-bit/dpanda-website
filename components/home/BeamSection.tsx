@@ -175,21 +175,23 @@ export const BeamSection: React.FC = () => {
         {/* Center: 3D Tilted Premium Glassmorphism Rate Card */}
         <div className="relative z-30">
           <Tilt3D rotateX={48} rotateY={0} rotateZ={-8} perspective={1400}>
-            <div className="relative w-[calc(100vw-36px)] max-w-[340px] sm:max-w-[460px] rounded-[32px] bg-[rgba(12,28,20,0.50)] border border-white/20 p-6 sm:p-8 backdrop-blur-[36px] backdrop-saturate-[180%] shadow-[0_32px_80px_rgba(0,0,0,0.85),0_0_40px_rgba(47,203,110,0.14)] text-[#F5F5F7] select-none overflow-hidden">
-              {/* Inner Glass Specular Reflection Highlight */}
-              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-b from-white/15 via-white/[0.02] to-transparent pointer-events-none" />
-              <div className="absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#7CF0A8]/70 to-transparent pointer-events-none" />
-
-              {/* Profile Tile Overlapping Top-Left Edge */}
-              <div className="absolute -top-7 -left-4 w-16 h-16 sm:w-18 sm:h-18 rounded-[22px] bg-gradient-to-b from-[#142E22] to-[#07130D] border border-[#7CF0A8]/50 shadow-[0_12px_28px_rgba(0,0,0,0.7),0_0_16px_rgba(124,240,168,0.2)] overflow-hidden flex items-center justify-center">
+            <div className="relative w-[calc(100vw-36px)] max-w-[340px] sm:max-w-[460px]">
+              {/* Profile Tile Overlapping Top-Left Edge (Positioned outside overflow-hidden so the panda face is never clipped) */}
+              <div className="absolute -top-7 -left-4 w-16 h-16 sm:w-18 sm:h-18 rounded-[22px] bg-gradient-to-b from-[#142E22] to-[#07130D] border border-[#7CF0A8]/50 shadow-[0_12px_28px_rgba(0,0,0,0.7),0_0_16px_rgba(124,240,168,0.2)] overflow-hidden flex items-center justify-center z-20">
                 <Image
                   src="/assets/3d/panda-bust.webp"
                   alt="dPanda"
                   width={60}
                   height={60}
-                  className="object-contain"
+                  className="object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]"
                 />
               </div>
+
+              {/* Card Body */}
+              <div className="relative w-full rounded-[32px] bg-[rgba(12,28,20,0.50)] border border-white/20 p-6 sm:p-8 backdrop-blur-[36px] backdrop-saturate-[180%] shadow-[0_32px_80px_rgba(0,0,0,0.85),0_0_40px_rgba(47,203,110,0.14)] text-[#F5F5F7] select-none overflow-hidden">
+                {/* Inner Glass Specular Reflection Highlight */}
+                <div className="absolute inset-0 rounded-[32px] bg-gradient-to-b from-white/15 via-white/[0.02] to-transparent pointer-events-none" />
+                <div className="absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#7CF0A8]/70 to-transparent pointer-events-none" />
 
               {/* Card Header Content */}
               <div className="ml-14 mb-4">
@@ -224,6 +226,7 @@ export const BeamSection: React.FC = () => {
                   <span>Paid in ₦</span>
                 </div>
               </div>
+            </div>
             </div>
           </Tilt3D>
         </div>

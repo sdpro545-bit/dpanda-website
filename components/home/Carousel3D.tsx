@@ -5,6 +5,7 @@ import useSWR from "swr";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, ArrowUpRight, AlertCircle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { IconTile } from "@/components/ui/IconTile";
 import { OdometerNumber } from "@/components/ui/OdometerNumber";
 import { GiftCard, GiftCardRate, CryptoAsset, PublicSettings } from "@/lib/data/types";
 import { getCryptoIconPath } from "@/lib/data/cryptoIcons";
@@ -460,18 +461,14 @@ export const Carousel3D: React.FC = () => {
                 }`}
                 aria-hidden={!isCenter}
               >
-                {/* 3D Floating Asset Overlapping Top Edge (Direct 3D render without small rounded corner square tile) */}
-                <div className="absolute -top-[36px] sm:-top-[40px] left-1/2 -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center pointer-events-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]">
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={item.iconPath}
-                      alt={item.name}
-                      fill
-                      sizes="80px"
-                      className="object-contain"
-                      priority={isCenter}
-                    />
-                  </div>
+                {/* 3D Icon Tile Overlapping Top Edge (Glossy curved rounded shape enclosing asset) */}
+                <div className="absolute -top-[36px] sm:-top-[40px] left-1/2 -translate-x-1/2">
+                  <IconTile
+                    src={item.iconPath}
+                    alt={item.name}
+                    fallbackText={item.name}
+                    size={isMobile ? 64 : 72}
+                  />
                 </div>
 
                 {/* Card Header */}
