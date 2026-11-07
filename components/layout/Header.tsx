@@ -132,7 +132,7 @@ export const Header: React.FC = () => {
               size="sm"
               className="w-full text-[14px] font-medium py-2.5 rounded-full shadow-[0_4px_16px_rgba(47,203,110,0.25)] flex items-center justify-center text-[#020605]"
             >
-              Trade on WhatsApp
+              Trade Now
             </Button>
           </div>
         </div>

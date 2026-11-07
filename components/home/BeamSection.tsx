@@ -148,7 +148,7 @@ export const BeamSection: React.FC = () => {
           </div>
           <div className="flex flex-col text-left">
             <span className="text-[10px] font-mono uppercase tracking-[0.14em] text-[#2FCB6E] font-semibold">
-              TRADE ON WHATSAPP
+              TRADE NOW
             </span>
               <span className="text-base sm:text-lg font-heading font-semibold text-[#F5F5F7] tracking-tight group-hover:text-[#7CF0A8] transition-colors mt-0.5">
                 Instant Settlement
@@ -261,7 +261,7 @@ export const BeamSection: React.FC = () => {
           </div>
           <div className="flex flex-col text-left">
             <span className="text-[10px] font-mono uppercase tracking-[0.12em] text-[#2FCB6E] font-semibold">
-              TRADE ON WHATSAPP
+              TRADE NOW
             </span>
             <span className="text-sm font-heading font-semibold text-[#F5F5F7] tracking-tight">
               Instant Settlement

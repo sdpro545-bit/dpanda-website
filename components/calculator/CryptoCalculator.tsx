@@ -240,7 +240,7 @@ export const CryptoCalculator: React.FC = () => {
           disabled={amount <= 0}
           className="shrink-0"
         >
-          {activeCoin.ngnPerUsd > 0 ? "Trade this on WhatsApp" : "Request Quote on WhatsApp"}
+          {activeCoin.ngnPerUsd > 0 ? "Trade Now" : "Request Quote"}
         </Button>
       </div>
 

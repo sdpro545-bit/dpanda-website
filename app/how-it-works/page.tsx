@@ -69,7 +69,7 @@ export default function HowItWorksPage() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button href={whatsappUrl} isExternal variant="solid-green" size="lg">
-              Start Trade on WhatsApp
+              Trade Now
             </Button>
             <Button href="/gift-cards" variant="glass" size="lg">
               Check Gift Card Rates

@@ -18,7 +18,7 @@ export const SITE_COPY = {
   hero: {
     ghostWord: "dPANDA",
     h1: "Trade without limits",
-    sub: "See today's naira rate for your gift card or crypto. Then trade on WhatsApp.",
+    sub: "See today's naira rate for your gift card or crypto. Then trade now.",
     primaryButton: "Check my rate",
     roundGlassButton: "Trade now",
     tag: "Gift cards · Crypto · Locked wallet funds",
