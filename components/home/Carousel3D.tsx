@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import useSWR from "swr";
-import { ArrowLeft, ArrowRight, MessageCircle, AlertCircle, RefreshCw } from "lucide-react";
-import { IconTile } from "@/components/ui/IconTile";
+import Image from "next/image";
+import { ArrowLeft, ArrowRight, ArrowUpRight, AlertCircle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { OdometerNumber } from "@/components/ui/OdometerNumber";
 import { GiftCard, GiftCardRate, CryptoAsset, PublicSettings } from "@/lib/data/types";
@@ -362,7 +362,7 @@ export const Carousel3D: React.FC = () => {
             handlePrev();
           }}
           aria-label="Previous card"
-          className="absolute left-2 sm:left-6 z-40 w-10 h-10 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.22)] backdrop-blur-xl flex items-center justify-center text-[#F5F5F7] transition-all duration-150 active:scale-95 focus:outline-none"
+          className="absolute left-1 sm:left-4 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.22)] backdrop-blur-xl flex items-center justify-center text-[#F5F5F7] transition-all duration-150 active:scale-95 focus:outline-none"
         >
           <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
@@ -373,7 +373,7 @@ export const Carousel3D: React.FC = () => {
             handleNext();
           }}
           aria-label="Next card"
-          className="absolute right-2 sm:right-6 z-40 w-10 h-10 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.22)] backdrop-blur-xl flex items-center justify-center text-[#F5F5F7] transition-all duration-150 active:scale-95 focus:outline-none"
+          className="absolute right-1 sm:right-4 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.22)] backdrop-blur-xl flex items-center justify-center text-[#F5F5F7] transition-all duration-150 active:scale-95 focus:outline-none"
         >
           <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
@@ -394,8 +394,8 @@ export const Carousel3D: React.FC = () => {
             const isNearRight = offset === 1;
             const isVisible = isCenter || isNearLeft || isNearRight;
 
-            // Responsive Arc geometry
-            const sideX = isMobile ? 180 : 282;
+            // Responsive Arc geometry (Tuned for edge-to-edge mobile screens)
+            const sideX = isMobile ? 135 : 282;
             let translateX = 0;
             let translateY = 0;
             let rotateZ = 0;
@@ -414,22 +414,22 @@ export const Carousel3D: React.FC = () => {
               zIndex = 30;
             } else if (isNearLeft) {
               translateX = -sideX;
-              translateY = isMobile ? 30 : 40;
-              rotateZ = -9;
-              scale = isMobile ? 0.8 : 0.9;
-              opacity = isMobile ? 0.22 : 0.35;
+              translateY = isMobile ? 26 : 40;
+              rotateZ = isMobile ? -6 : -9;
+              scale = isMobile ? 0.74 : 0.9;
+              opacity = isMobile ? 0.18 : 0.35;
               blur = "1px";
               zIndex = 20;
             } else if (isNearRight) {
               translateX = sideX;
-              translateY = isMobile ? 30 : 40;
-              rotateZ = 9;
-              scale = isMobile ? 0.8 : 0.9;
-              opacity = isMobile ? 0.22 : 0.35;
+              translateY = isMobile ? 26 : 40;
+              rotateZ = isMobile ? 6 : 9;
+              scale = isMobile ? 0.74 : 0.9;
+              opacity = isMobile ? 0.18 : 0.35;
               blur = "1px";
               zIndex = 20;
             } else {
-              translateX = offset < 0 ? (isMobile ? -360 : -520) : (isMobile ? 360 : 520);
+              translateX = offset < 0 ? (isMobile ? -280 : -520) : (isMobile ? 280 : 520);
               translateY = 90;
               rotateZ = offset < 0 ? -16 : 16;
               scale = 0.8;
@@ -455,19 +455,23 @@ export const Carousel3D: React.FC = () => {
                   transition: "all 0.7s cubic-bezier(0.28, 0.11, 0.32, 1)",
                   pointerEvents: isVisible ? "auto" : "none",
                 }}
-                className={`absolute w-[292px] rounded-[28px] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] backdrop-blur-[20px] p-5 pt-11 shadow-[0_16px_40px_rgba(0,0,0,0.6)] ${
+                className={`absolute w-[calc(100vw-68px)] max-w-[280px] sm:max-w-[292px] rounded-[28px] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] backdrop-blur-[20px] p-4 sm:p-5 pt-11 sm:pt-12 shadow-[0_16px_40px_rgba(0,0,0,0.6)] ${
                   !isCenter ? "cursor-pointer hover:opacity-50" : ""
                 }`}
                 aria-hidden={!isCenter}
               >
-                {/* 3D Icon Tile Overlapping Top Edge */}
-                <div className="absolute -top-[36px] left-1/2 -translate-x-1/2">
-                  <IconTile
-                    src={item.iconPath}
-                    alt={item.name}
-                    fallbackText={item.name}
-                    size={72}
-                  />
+                {/* 3D Floating Asset Overlapping Top Edge (Direct 3D render without small rounded corner square tile) */}
+                <div className="absolute -top-[36px] sm:-top-[40px] left-1/2 -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center pointer-events-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={item.iconPath}
+                      alt={item.name}
+                      fill
+                      sizes="80px"
+                      className="object-contain"
+                      priority={isCenter}
+                    />
+                  </div>
                 </div>
 
                 {/* Card Header */}
@@ -589,10 +593,10 @@ export const Carousel3D: React.FC = () => {
                             size="sm"
                             href={whatsappUrl}
                             isExternal
-                            className="w-full text-[13px] font-medium py-2.5 flex items-center justify-center gap-1.5 rounded-full shadow-[0_4px_16px_rgba(47,203,110,0.25)]"
+                            className="w-full text-[14px] sm:text-[15px] font-medium py-3 flex items-center justify-center gap-2 rounded-full shadow-[0_4px_16px_rgba(47,203,110,0.25)] text-[#020605] hover:bg-[#34db77] transition-all active:scale-[0.98]"
                           >
-                            <MessageCircle className="w-4 h-4" />
-                            <span>Trade Now</span>
+                            <span className="font-heading font-medium tracking-tight">Trade Now</span>
+                            <ArrowUpRight className="w-4 h-4 stroke-[2.4] text-[#020605]" />
                           </Button>
                         </div>
                       </>

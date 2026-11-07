@@ -10,7 +10,8 @@ interface FloatingItem {
   alt: string;
   layer: "far" | "mid" | "near";
   initialTop: string;
-  initialLeft: string;
+  initialLeft?: string;
+  initialRight?: string;
   width: number;
   height: number;
   driftX1: number; // 25% drift vw
@@ -57,7 +58,7 @@ const FLOATING_ITEMS: FloatingItem[] = [
     alt: "USDT 3D Box",
     layer: "near",
     initialTop: "15%",
-    initialLeft: "91%",
+    initialRight: "1.5%",
     width: 115,
     height: 115,
     driftX1: 0.6,
@@ -344,7 +345,7 @@ export const FloatingLayer: React.FC = () => {
       {/* 4. Autonomous Dynamically Animated 3D Objects (No Parallax) */}
       {FLOATING_ITEMS.map((item) => {
         const layerStyles = item.isCryptoBox
-          ? "opacity-[0.92] drop-shadow-[0_12px_36px_rgba(0,0,0,0.85)] scale-65 sm:scale-85 md:scale-100 origin-center"
+          ? "opacity-[0.92] drop-shadow-[0_12px_36px_rgba(0,0,0,0.85)] scale-55 sm:scale-80 md:scale-100 origin-center"
           : item.layer === "far"
           ? "hidden sm:block blur-[2px] opacity-[0.25] scale-75 sm:scale-90"
           : "hidden sm:block opacity-[0.55] scale-80 sm:scale-95";
@@ -356,6 +357,7 @@ export const FloatingLayer: React.FC = () => {
             style={{
               top: item.initialTop,
               left: item.initialLeft,
+              right: item.initialRight,
               width: `${item.width}px`,
               height: `${item.height}px`,
               willChange: "transform",

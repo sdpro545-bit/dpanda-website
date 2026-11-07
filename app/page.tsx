@@ -12,7 +12,7 @@ export default function HomePage() {
       <FloatingLayer />
 
       {/* Main Content Column (Max-width 980px) */}
-      <div className="relative z-10 max-w-[980px] mx-auto flex flex-col gap-20 sm:gap-28 md:gap-36">
+      <div className="relative z-10 max-w-[980px] mx-auto flex flex-col gap-10 sm:gap-20 md:gap-32">
         {/* Reference Part B: Intro Block with Apple Typography */}
         <ScrollReveal delay={100}>
           <IntroBlock />
@@ -25,7 +25,7 @@ export default function HomePage() {
       </div>
 
       {/* Reference Part D: Full Width Light-Beam Stage Section Reaching Seamlessly Down Into Footer */}
-      <div className="relative z-10 w-full mt-6 sm:mt-10 md:mt-12">
+      <div className="relative z-10 w-full mt-4 sm:mt-8 md:mt-12">
         <ScrollReveal delay={150}>
           <BeamSection />
         </ScrollReveal>

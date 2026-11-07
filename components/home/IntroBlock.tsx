@@ -57,6 +57,13 @@ export const IntroBlock: React.FC = () => {
     return () => clearInterval(wordInterval);
   }, []);
 
+  // 3. Text reveal trigger on mount
+  const [isTextRevealed, setIsTextRevealed] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setIsTextRevealed(true), 120);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="relative z-10 text-center max-w-3xl mx-auto px-4 pt-16 sm:pt-24 pb-4 flex flex-col items-center">
       {/* 3D Panda Seated with Phone (Right side hero accent with luxury green glow & seamless gradient mask) */}
@@ -97,46 +104,58 @@ export const IntroBlock: React.FC = () => {
         </div>
       </div>
 
-      {/* Clean Typing Text without rounded rectangle container */}
+      {/* Clean Typing Text without rounded rectangle container or glowing dot */}
       <div className="mb-6 flex items-center justify-center min-h-[30px] select-none relative z-10">
         <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-[0.12em] uppercase text-[#2FCB6E]">
           {typedText}
         </span>
-        <span className="inline-block w-1.5 h-3.5 bg-[#2FCB6E] ml-1.5 rounded-sm animate-pulse" />
+        <span className="inline-block w-1.5 h-3.5 bg-[#2FCB6E] ml-1.5 rounded-sm opacity-90" />
       </div>
 
-      {/* Main Heading H1 with light-green "without limits" and switching word */}
+      {/* Main Heading H1 with text reveal effect */}
       <h1
-        className="font-heading font-semibold text-[#F5F5F7] tracking-[-0.03em] leading-[1.05] max-w-2xl text-center relative z-10"
-        style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+        className={`font-heading font-semibold text-[#F5F5F7] tracking-[-0.03em] leading-[1.05] max-w-2xl text-center relative z-10 ${
+          isTextRevealed ? "text-revealed" : ""
+        }`}
+        style={{ fontSize: "clamp(2.3rem, 7.5vw, 4.8rem)" }}
       >
-        Trade
+        <span className="text-reveal-mask">
+          <span className="text-reveal-item">Trade</span>
+        </span>
         <br />
-        <span className="text-[#2FCB6E]">without </span>
-        <span
-          className={`inline-block text-[#7CF0A8] transition-all duration-300 transform ${
-            fadeState === "in"
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-2"
-          }`}
-        >
-          {ROTATING_WORDS[wordIndex]}
+        <span className="text-reveal-mask">
+          <span className="text-reveal-item text-[#2FCB6E]">
+            without{" "}
+            <span
+              className={`inline-block text-[#7CF0A8] transition-all duration-300 transform ${
+                fadeState === "in"
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 -translate-y-2"
+              }`}
+            >
+              {ROTATING_WORDS[wordIndex]}
+            </span>
+          </span>
         </span>
       </h1>
 
-      {/* Body: 17px, line-height 1.47, colour #86868B */}
-      <p className="mt-5 text-[17px] leading-[1.47] text-[#86868B] max-w-[460px] mx-auto text-center font-normal relative z-10">
+      {/* Body: 17px, line-height 1.47, colour #86868B with smooth reveal */}
+      <p
+        className={`mt-4 sm:mt-5 text-[16px] sm:text-[17px] leading-[1.47] text-[#86868B] max-w-[460px] mx-auto text-center font-normal relative z-10 transition-all duration-700 delay-150 ${
+          isTextRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+        }`}
+      >
         See today&apos;s naira rate for your gift card or crypto. Pick an asset, enter your amount, and receive fast payment to your bank account.
       </p>
 
       {/* Action Buttons: "Trade Now" and "Today's rate" */}
-      <div className="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-3.5 mt-8 relative z-10 w-full px-2">
+      <div className="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 mt-7 sm:mt-9 relative z-10 w-full max-w-sm sm:max-w-md mx-auto px-2">
         <Button
           variant="solid-green"
           size="md"
           href={whatsappUrl}
           isExternal
-          className="h-11 sm:h-12 px-5 sm:px-7 rounded-full font-medium shadow-[0_4px_16px_rgba(47,203,110,0.25)] inline-flex flex-row items-center justify-center gap-2 whitespace-nowrap text-[15px] sm:text-[17px]"
+          className="h-11 sm:h-12 px-6 sm:px-8 rounded-full font-medium shadow-[0_4px_16px_rgba(47,203,110,0.25)] flex items-center justify-center gap-2 whitespace-nowrap text-[15px] sm:text-[16px] text-[#020605] hover:bg-[#34db77] transition-all active:scale-[0.98] flex-1 sm:flex-initial"
         >
           <span>Trade Now</span>
           <ArrowUpRight className="w-4 h-4 stroke-[2.4] text-[#020605]" />
@@ -146,7 +165,7 @@ export const IntroBlock: React.FC = () => {
           variant="glass"
           size="md"
           href="/gift-cards"
-          className="h-11 sm:h-12 px-5 sm:px-7 rounded-full font-medium border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.08)] inline-flex flex-row items-center justify-center gap-2 whitespace-nowrap text-[15px] sm:text-[17px]"
+          className="h-11 sm:h-12 px-6 sm:px-8 rounded-full font-medium border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.08)] flex items-center justify-center gap-2 whitespace-nowrap text-[15px] sm:text-[16px] text-[#F5F5F7] transition-all active:scale-[0.98] flex-1 sm:flex-initial"
         >
           <span>Today&apos;s rate</span>
           <TrendingUp className="w-4 h-4 stroke-[2.2] text-[#2FCB6E]" />

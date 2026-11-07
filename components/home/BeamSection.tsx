@@ -121,12 +121,9 @@ export const BeamSection: React.FC = () => {
               <Clock className="w-6 h-6 text-[#7CF0A8] stroke-[2]" />
             </div>
             <div className="flex flex-col text-left">
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2FCB6E] animate-ping" />
-                <span className="text-[10px] font-mono uppercase tracking-[0.14em] text-[#7CF0A8] font-semibold">
-                  LIVE RATE TIME
-                </span>
-              </div>
+              <span className="text-[10px] font-mono uppercase tracking-[0.14em] text-[#7CF0A8] font-semibold">
+                LIVE RATE TIME
+              </span>
               <span className="text-base sm:text-lg font-heading font-semibold text-[#F5F5F7] tracking-tight tabular-nums mt-0.5">
                 {formatTimeLagos()}{" "}
                 <span className="text-xs text-[#86868B] font-mono font-normal">WAT</span>
@@ -138,24 +135,21 @@ export const BeamSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Floating Object (Desktop Only): Luxury Glassmorphic WhatsApp Trade Desk Widget */}
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden lg:flex absolute right-2 xl:right-6 bottom-16 xl:bottom-20 z-20 transition-all duration-300 hover:scale-105 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7CF0A8] rounded-[24px]"
-        >
-          <div className="p-4 sm:p-5 rounded-[24px] bg-[rgba(10,25,18,0.50)] border border-white/15 backdrop-blur-2xl shadow-[0_16px_40px_rgba(0,0,0,0.7),0_0_24px_rgba(47,203,110,0.1)] group-hover:border-[#2FCB6E]/50 flex items-center gap-3.5 select-none">
-            <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-gradient-to-b from-[#184628] to-[#0A2414] border border-[#2FCB6E]/50 flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 transition-transform duration-300">
-              <WhatsAppIcon className="w-6 h-6 sm:w-7 sm:h-7 text-[#25D366]" />
-            </div>
-            <div className="flex flex-col text-left">
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366]" />
-                <span className="text-[10px] font-mono uppercase tracking-[0.14em] text-[#2FCB6E] font-semibold">
-                  TRADE ON WHATSAPP
-                </span>
-              </div>
+      {/* Right Floating Object (Desktop Only): Luxury Glassmorphic WhatsApp Trade Desk Widget */}
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden lg:flex absolute right-2 xl:right-6 bottom-16 xl:bottom-20 z-20 transition-all duration-300 hover:scale-105 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7CF0A8] rounded-[24px]"
+      >
+        <div className="p-4 sm:p-5 rounded-[24px] bg-[rgba(10,25,18,0.50)] border border-white/15 backdrop-blur-2xl shadow-[0_16px_40px_rgba(0,0,0,0.7),0_0_24px_rgba(47,203,110,0.1)] group-hover:border-[#2FCB6E]/50 flex items-center gap-3.5 select-none">
+          <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-gradient-to-b from-[#184628] to-[#0A2414] border border-[#2FCB6E]/50 flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 transition-transform duration-300">
+            <WhatsAppIcon className="w-6 h-6 sm:w-7 sm:h-7 text-[#25D366]" />
+          </div>
+          <div className="flex flex-col text-left">
+            <span className="text-[10px] font-mono uppercase tracking-[0.14em] text-[#2FCB6E] font-semibold">
+              TRADE ON WHATSAPP
+            </span>
               <span className="text-base sm:text-lg font-heading font-semibold text-[#F5F5F7] tracking-tight group-hover:text-[#7CF0A8] transition-colors mt-0.5">
                 Instant Settlement
               </span>
