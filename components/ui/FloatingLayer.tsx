@@ -27,24 +27,24 @@ interface FloatingItem {
 }
 
 const FLOATING_ITEMS: FloatingItem[] = [
-  // 1. Box 1 with 3D BTC Logo (Upper Left, close to Trade heading)
+  // 1. Box 1 with 3D BTC Logo (Far Upper Left gutter, well above dynamic changing text)
   {
     id: "box-btc",
     src: "/assets/3d/shape-diamond-1.webp",
     coinSrc: "/assets/3d/coin-btc.webp",
     alt: "Bitcoin 3D Box",
     layer: "near",
-    initialTop: "4%",
-    initialLeft: "1.5%",
-    width: 115,
-    height: 115,
-    driftX1: -0.3,
-    driftY1: -2,
-    driftX2: 0.4,
-    driftY2: 2,
-    driftX3: -0.2,
-    driftY3: 1,
-    rotateMax: 8,
+    initialTop: "1.5%",
+    initialLeft: "1%",
+    width: 110,
+    height: 110,
+    driftX1: -0.2,
+    driftY1: -1,
+    driftX2: 0.3,
+    driftY2: 1.5,
+    driftX3: -0.1,
+    driftY3: 0.5,
+    rotateMax: 6,
     duration: 32,
     delay: -4,
     isCryptoBox: true,
@@ -299,15 +299,14 @@ export const FloatingLayer: React.FC = () => {
         }}
       />
 
-      {/* 2. Soft Light Beams: 3 shafts with cool teal-white tint & slow breathing opacity */}
+      {/* 2. Soft Light Beams: Hardware-efficient gradients (Zero Gaussian blur redraw overhead for 120fps fluid scrolling) */}
       <div className="absolute inset-0 flex items-start justify-center overflow-hidden pointer-events-none mix-blend-screen">
         {/* Shaft 1 */}
         <div
           className="absolute -top-[15%] left-[20%] w-[380px] h-[1300px] pointer-events-none origin-top"
           style={{
             background:
-              "linear-gradient(180deg, rgba(160, 245, 220, 0.20) 0%, rgba(120, 225, 195, 0.05) 55%, transparent 90%)",
-            filter: "blur(48px)",
+              "radial-gradient(ellipse 55% 75% at 50% 0%, rgba(160, 245, 220, 0.18) 0%, rgba(120, 225, 195, 0.05) 50%, transparent 80%)",
             animation: reducedMotion ? "none" : "beamSweep1 24s ease-in-out infinite",
             animationPlayState: isPaused ? "paused" : "running",
             willChange: "transform, opacity",
@@ -318,8 +317,7 @@ export const FloatingLayer: React.FC = () => {
           className="absolute -top-[20%] right-[22%] w-[420px] h-[1400px] pointer-events-none origin-top"
           style={{
             background:
-              "linear-gradient(180deg, rgba(180, 255, 235, 0.18) 0%, rgba(130, 235, 205, 0.04) 50%, transparent 85%)",
-            filter: "blur(54px)",
+              "radial-gradient(ellipse 60% 80% at 50% 0%, rgba(180, 255, 235, 0.16) 0%, rgba(130, 235, 205, 0.04) 45%, transparent 75%)",
             animation: reducedMotion ? "none" : "beamSweep2 28s ease-in-out infinite",
             animationPlayState: isPaused ? "paused" : "running",
             willChange: "transform, opacity",
@@ -330,8 +328,7 @@ export const FloatingLayer: React.FC = () => {
           className="absolute -top-[10%] left-[45%] w-[320px] h-[1200px] pointer-events-none origin-top"
           style={{
             background:
-              "linear-gradient(180deg, rgba(200, 255, 245, 0.14) 0%, rgba(140, 240, 215, 0.03) 60%, transparent 85%)",
-            filter: "blur(42px)",
+              "radial-gradient(ellipse 50% 70% at 50% 0%, rgba(200, 255, 245, 0.12) 0%, rgba(140, 240, 215, 0.03) 55%, transparent 75%)",
             animation: reducedMotion ? "none" : "beamSweep3 22s ease-in-out infinite",
             animationPlayState: isPaused ? "paused" : "running",
             willChange: "transform, opacity",

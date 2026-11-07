@@ -34,18 +34,18 @@ export const Header: React.FC = () => {
   )}`;
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 pointer-events-none transition-all duration-300 px-3 sm:px-6 pt-2.5 sm:pt-3">
-      <div className="max-w-[980px] mx-auto pointer-events-auto">
+    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none transition-all duration-300 px-3 sm:px-6 pt-2.5 sm:pt-3">
+      <div className="relative max-w-[980px] mx-auto pointer-events-auto">
         {/* Dynamic Glass Morphic Curved Nav Container */}
         <nav
           className={`relative flex items-center justify-between transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             mobileMenuOpen
-              ? "rounded-t-[24px] rounded-b-none"
+              ? "rounded-[24px]"
               : "rounded-full"
           } ${
             isScrolled
-              ? "bg-[rgba(6,18,12,0.80)] border border-[#2FCB6E]/35 backdrop-blur-[28px] backdrop-saturate-[190%] shadow-[0_16px_40px_rgba(0,0,0,0.85),0_0_24px_rgba(47,203,110,0.15)] py-2 sm:py-2.5 px-4 sm:px-6"
-              : "bg-[rgba(10,24,18,0.55)] border border-white/15 backdrop-blur-[20px] backdrop-saturate-[160%] shadow-[0_8px_32px_rgba(0,0,0,0.6)] py-2 sm:py-2.5 px-4 sm:px-6"
+              ? "bg-[rgba(6,18,12,0.82)] border border-[#2FCB6E]/35 backdrop-blur-[28px] backdrop-saturate-[190%] shadow-[0_16px_40px_rgba(0,0,0,0.85),0_0_24px_rgba(47,203,110,0.15)] py-2 sm:py-2.5 px-4 sm:px-6"
+              : "bg-[rgba(10,24,18,0.60)] border border-white/15 backdrop-blur-[20px] backdrop-saturate-[160%] shadow-[0_8px_32px_rgba(0,0,0,0.6)] py-2 sm:py-2.5 px-4 sm:px-6"
           }`}
         >
           {/* Top Glass Specular Bevel Highlight */}
@@ -122,15 +122,15 @@ export const Header: React.FC = () => {
           </button>
         </nav>
 
-        {/* Animated Card Folder Drawer with Glassmorphism Curve */}
+        {/* Floating Overlay Mobile Drawer (Does NOT push page content down!) */}
         <div
-          className={`md:hidden overflow-hidden origin-top transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-b-[24px] border-x border-b ${
+          className={`md:hidden absolute top-full left-0 right-0 mt-2 z-50 overflow-hidden origin-top transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-[24px] border ${
             isScrolled
-              ? "border-[#2FCB6E]/35 bg-[rgba(6,18,12,0.95)]"
-              : "border-white/15 bg-[rgba(10,24,18,0.95)]"
-          } backdrop-blur-3xl shadow-[0_24px_48px_rgba(0,0,0,0.9)] ${
+              ? "border-[#2FCB6E]/35 bg-[rgba(6,18,12,0.96)]"
+              : "border-white/15 bg-[rgba(10,24,18,0.96)]"
+          } backdrop-blur-3xl shadow-[0_24px_48px_rgba(0,0,0,0.95)] ${
             mobileMenuOpen
-              ? "max-h-[380px] opacity-100 scale-y-100 translate-y-0"
+              ? "max-h-[380px] opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
               : "max-h-0 opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
           }`}
         >

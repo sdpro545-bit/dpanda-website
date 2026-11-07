@@ -13,8 +13,8 @@ export const IntroBlock: React.FC = () => {
     "Hello dPanda, I want to trade."
   )}`;
 
-  // 1. Back-and-forth typing animation for "Welcome to dPanda.ng"
-  const fullText = "Welcome to dPanda.ng";
+  // 1. Back-and-forth typing animation for "welcome to dPanda.ng"
+  const fullText = "welcome to dPanda.ng";
   const [typedText, setTypedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -106,7 +106,7 @@ export const IntroBlock: React.FC = () => {
 
       {/* Clean Typing Text without rounded rectangle container or glowing dot */}
       <div className="mb-2 sm:mb-4 flex items-center justify-center min-h-[24px] select-none relative z-10">
-        <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-[0.12em] uppercase text-[#2FCB6E]">
+        <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-[0.08em] text-[#2FCB6E]">
           {typedText}
         </span>
         <span className="inline-block w-1.5 h-3.5 bg-[#2FCB6E] ml-1.5 rounded-sm opacity-90" />

@@ -8,6 +8,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Search } from "lucide-react";
+import Image from "next/image";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -32,7 +33,25 @@ export default function GiftCardsPage() {
   });
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-20">
+    <div className="relative max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-20">
+      {/* 3D Panda Thumbs Up Background Blend */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[340px] sm:w-[500px] h-[340px] sm:h-[500px] pointer-events-none select-none -z-10 overflow-hidden">
+        <div
+          className="relative w-full h-full opacity-[0.11] transform -translate-y-2"
+          style={{
+            maskImage: "radial-gradient(circle at 50% 45%, black 40%, transparent 75%)",
+            WebkitMaskImage: "radial-gradient(circle at 50% 45%, black 40%, transparent 75%)",
+          }}
+        >
+          <Image
+            src="/assets/3d/panda-thumbs-up.webp"
+            alt="dPanda Ambassador"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+      </div>
       {/* Page Header */}
       <ScrollReveal className="text-center max-w-2xl mx-auto space-y-4">
         <Eyebrow>Today&apos;s Rates</Eyebrow>

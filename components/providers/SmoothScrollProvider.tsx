@@ -25,7 +25,10 @@ export const SmoothScrollProvider: React.FC<{ children: React.ReactNode }> = ({
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    if (prefersReducedMotion) {
+    // Check touch devices - on mobile/tablet, native momentum scroll delivers zero-drag 120Hz fluid motion
+    const isTouch = typeof window !== "undefined" && ("ontouchstart" in window || navigator.maxTouchPoints > 0);
+
+    if (prefersReducedMotion || isTouch) {
       return;
     }
 
