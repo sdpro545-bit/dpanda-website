@@ -65,10 +65,10 @@ export const IntroBlock: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative z-10 text-center max-w-3xl mx-auto px-4 pt-16 sm:pt-24 pb-4 flex flex-col items-center">
+    <div className="relative z-10 text-center max-w-3xl mx-auto px-4 pt-12 sm:pt-24 pb-4 flex flex-col items-center">
       {/* 3D Panda Seated with Phone (Hero accent with luxury green glow & seamless gradient mask) */}
       <div
-        className="block absolute -right-2 sm:-right-6 md:-right-16 lg:-right-32 xl:-right-44 top-2 sm:top-2 md:top-6 lg:top-2 w-[120px] sm:w-[180px] md:w-[280px] lg:w-[340px] xl:w-[380px] h-[150px] sm:h-[220px] md:h-[350px] lg:h-[420px] xl:h-[460px] pointer-events-none select-none z-0"
+        className="block absolute -right-2 sm:-right-6 md:-right-16 lg:-right-32 xl:-right-44 top-1 sm:top-2 md:top-6 lg:top-2 w-[115px] sm:w-[180px] md:w-[280px] lg:w-[340px] xl:w-[380px] h-[145px] sm:h-[220px] md:h-[350px] lg:h-[420px] xl:h-[460px] pointer-events-none select-none z-0"
         style={{
           animation: "heroPandaLevitate 8s ease-in-out infinite alternate",
         }}
@@ -99,13 +99,13 @@ export const IntroBlock: React.FC = () => {
             fill
             priority
             className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
-            sizes="(max-width: 640px) 120px, (max-width: 768px) 180px, (max-width: 1024px) 280px, (max-width: 1280px) 340px, 380px"
+            sizes="(max-width: 640px) 115px, (max-width: 768px) 180px, (max-width: 1024px) 280px, (max-width: 1280px) 340px, 380px"
           />
         </div>
       </div>
 
       {/* Clean Typing Text without rounded rectangle container or glowing dot */}
-      <div className="mb-6 flex items-center justify-center min-h-[30px] select-none relative z-10">
+      <div className="mb-2 sm:mb-4 flex items-center justify-center min-h-[24px] select-none relative z-10">
         <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-[0.12em] uppercase text-[#2FCB6E]">
           {typedText}
         </span>
@@ -114,15 +114,14 @@ export const IntroBlock: React.FC = () => {
 
       {/* Main Heading H1 with text reveal effect */}
       <h1
-        className={`font-heading font-semibold text-[#F5F5F7] tracking-[-0.03em] leading-[1.05] max-w-2xl text-center relative z-10 ${
+        className={`font-heading font-semibold text-[#F5F5F7] tracking-[-0.035em] leading-[1.0] sm:leading-[1.04] max-w-2xl text-center relative z-10 ${
           isTextRevealed ? "text-revealed" : ""
         }`}
-        style={{ fontSize: "clamp(2.3rem, 7.5vw, 4.8rem)" }}
+        style={{ fontSize: "clamp(2.5rem, 8vw, 4.8rem)" }}
       >
         <span className="text-reveal-mask">
           <span className="text-reveal-item">Trade</span>
         </span>
-        <br />
         <span className="text-reveal-mask">
           <span className="text-reveal-item text-[#2FCB6E]">
             without{" "}
@@ -139,9 +138,9 @@ export const IntroBlock: React.FC = () => {
         </span>
       </h1>
 
-      {/* Body: 17px, line-height 1.47, colour #86868B with smooth reveal */}
+      {/* Body: 15-17px, line-height 1.4-1.47, colour #86868B with smooth reveal */}
       <p
-        className={`mt-4 sm:mt-5 text-[16px] sm:text-[17px] leading-[1.47] text-[#86868B] max-w-[460px] mx-auto text-center font-normal relative z-10 transition-all duration-700 delay-150 ${
+        className={`mt-3 sm:mt-5 text-[15px] sm:text-[17px] leading-[1.4] sm:leading-[1.47] text-[#86868B] max-w-[460px] mx-auto text-center font-normal relative z-10 transition-all duration-700 delay-150 ${
           isTextRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
         }`}
       >
@@ -149,7 +148,7 @@ export const IntroBlock: React.FC = () => {
       </p>
 
       {/* Action Buttons: "Trade Now" and "Today's rate" */}
-      <div className="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 mt-7 sm:mt-9 relative z-10 w-full max-w-sm sm:max-w-md mx-auto px-2">
+      <div className="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 mt-5 sm:mt-8 relative z-10 w-full max-w-sm sm:max-w-md mx-auto px-2">
         <Button
           variant="solid-green"
           size="md"

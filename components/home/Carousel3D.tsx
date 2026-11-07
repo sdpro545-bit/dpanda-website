@@ -456,11 +456,16 @@ export const Carousel3D: React.FC = () => {
                   transition: "all 0.7s cubic-bezier(0.28, 0.11, 0.32, 1)",
                   pointerEvents: isVisible ? "auto" : "none",
                 }}
-                className={`absolute w-[calc(100vw-68px)] max-w-[280px] sm:max-w-[292px] rounded-[28px] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] backdrop-blur-[20px] p-4 sm:p-5 pt-11 sm:pt-12 shadow-[0_16px_40px_rgba(0,0,0,0.6)] ${
-                  !isCenter ? "cursor-pointer hover:opacity-50" : ""
-                }`}
+                className={`absolute w-[calc(100vw-68px)] max-w-[280px] sm:max-w-[292px] rounded-[28px] bg-gradient-to-b from-[rgba(16,38,28,0.55)] via-[rgba(9,22,16,0.45)] to-[rgba(4,10,7,0.65)] border ${
+                  isCenter
+                    ? "border-[#2FCB6E]/40 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(47,203,110,0.20)]"
+                    : "border-[#2FCB6E]/20 shadow-[0_16px_40px_rgba(0,0,0,0.6),0_0_16px_rgba(47,203,110,0.08)] cursor-pointer hover:opacity-50"
+                } backdrop-blur-[24px] p-4 sm:p-5 pt-11 sm:pt-12 overflow-hidden transition-all duration-300`}
                 aria-hidden={!isCenter}
               >
+                {/* Top Glass Specular Rim Highlight */}
+                <div className="absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#7CF0A8]/60 to-transparent pointer-events-none" />
+
                 {/* 3D Icon Tile Overlapping Top Edge (Glossy curved rounded shape enclosing asset) */}
                 <div className="absolute -top-[36px] sm:-top-[40px] left-1/2 -translate-x-1/2">
                   <IconTile

@@ -232,8 +232,8 @@ export const BeamSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile/Tablet Responsive Widgets Bar (< lg) */}
-      <div className="flex lg:hidden flex-wrap items-center justify-center gap-3.5 mt-4 sm:mt-6 px-4 w-full max-w-lg mx-auto relative z-30">
+      {/* Mobile/Tablet Responsive Widgets Bar (< lg) pushed close above */}
+      <div className="flex lg:hidden flex-wrap items-center justify-center gap-3.5 -mt-3 sm:-mt-1 px-4 w-full max-w-lg mx-auto relative z-30">
         {/* Clock Widget */}
         <div className="flex-1 min-w-[200px] p-3.5 sm:p-4 rounded-[22px] bg-[rgba(10,25,18,0.55)] border border-white/15 backdrop-blur-2xl shadow-lg flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-[#142E22] to-[#08140E] border border-[#7CF0A8]/40 flex items-center justify-center shrink-0">
