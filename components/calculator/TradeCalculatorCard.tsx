@@ -11,7 +11,7 @@ import { BRAND } from "@/config/brand";
 
 export const TradeCalculatorCard: React.FC = () => {
   const [amount, setAmount] = useState<number>(100);
-  const rate = 1420; // Amazon US e-code seed rate
+  const rate = 1330; // Amazon US e-code seed rate
   const payout = Math.floor(amount * rate);
 
   const whatsappUrl = `https://wa.me/${BRAND.whatsappNumberIntl}?text=${encodeURIComponent(

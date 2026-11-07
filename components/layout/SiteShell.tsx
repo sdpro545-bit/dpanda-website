@@ -32,7 +32,7 @@ export function SiteShell({ children, adminSlug }: SiteShellProps) {
     <SmoothScrollProvider>
       <Noise />
       <Header />
-      <main className="min-h-screen relative bg-gradient-to-b from-[#020605] via-[#010403] to-[#000000] pt-14 sm:pt-16">
+      <main className="min-h-screen relative bg-gradient-to-b from-[#020605] via-[#010403] to-[#000000] pt-16 sm:pt-20">
         {!isHome && (
           <div
             aria-hidden="true"

@@ -92,7 +92,7 @@ export const PhoneSection: React.FC = () => {
   }, []);
 
   const whatsappUrl = `https://wa.me/${BRAND.whatsappNumberIntl}?text=${encodeURIComponent(
-    `Hello dPanda, I want to trade.\n\nCard: Amazon (US e-code)\nAmount: $100\nRate: ₦1,420 per $1\nEstimated payout: ₦142,000`
+    `Hello dPanda, I want to trade.\n\nCard: Amazon (US e-code)\nAmount: $100\nRate: ₦1,330 per $1\nEstimated payout: ₦133,000`
   )}`;
 
   return (
@@ -165,9 +165,9 @@ export const PhoneSection: React.FC = () => {
                   <div className="text-white/80 space-y-0.5 pt-1 border-t border-white/10 font-mono text-[10px]">
                     <p>Card: Amazon (US e-code)</p>
                     <p>Amount: $100</p>
-                    <p>Rate: ₦1,420 per $1</p>
+                    <p>Rate: ₦1,330 per $1</p>
                     <p className="text-yellow-400 font-bold text-[11px]">
-                      Estimated payout: ₦142,000
+                      Estimated payout: ₦133,000
                     </p>
                   </div>
                   <div className="flex justify-end items-center gap-1 text-[9px] text-white/50 pt-0.5">

@@ -65,10 +65,10 @@ export const IntroBlock: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative z-10 text-center max-w-3xl mx-auto px-4 pt-12 sm:pt-24 pb-4 flex flex-col items-center">
+    <div className="relative z-10 text-center max-w-3xl mx-auto px-4 pt-16 sm:pt-24 md:pt-28 pb-4 flex flex-col items-center">
       {/* 3D Panda Seated with Phone (Hero accent with luxury green glow & seamless gradient mask) */}
       <div
-        className="block absolute -right-2 sm:-right-6 md:-right-16 lg:-right-32 xl:-right-44 top-1 sm:top-2 md:top-6 lg:top-2 w-[115px] sm:w-[180px] md:w-[280px] lg:w-[340px] xl:w-[380px] h-[145px] sm:h-[220px] md:h-[350px] lg:h-[420px] xl:h-[460px] pointer-events-none select-none z-0"
+        className="block absolute -right-2 sm:-right-6 md:-right-16 lg:-right-32 xl:-right-44 top-10 sm:top-14 md:top-16 lg:top-14 w-[115px] sm:w-[180px] md:w-[280px] lg:w-[340px] xl:w-[380px] h-[145px] sm:h-[220px] md:h-[350px] lg:h-[420px] xl:h-[460px] pointer-events-none select-none z-0"
         style={{
           animation: "heroPandaLevitate 8s ease-in-out infinite alternate",
         }}

@@ -122,19 +122,22 @@ export const Header: React.FC = () => {
           </button>
         </nav>
 
-        {/* Floating Overlay Mobile Drawer (Does NOT push page content down!) */}
+        {/* Floating Overlay Mobile Drawer (Dynamic Glass Blur - see through content behind!) */}
         <div
           className={`md:hidden absolute top-full left-0 right-0 mt-2 z-50 overflow-hidden origin-top transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-[24px] border ${
             isScrolled
-              ? "border-[#2FCB6E]/35 bg-[rgba(6,18,12,0.96)]"
-              : "border-white/15 bg-[rgba(10,24,18,0.96)]"
-          } backdrop-blur-3xl shadow-[0_24px_48px_rgba(0,0,0,0.95)] ${
+              ? "border-[#2FCB6E]/40 bg-[rgba(5,18,12,0.68)] shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_24px_rgba(47,203,110,0.12)]"
+              : "border-white/20 bg-[rgba(8,22,15,0.60)] shadow-[0_20px_40px_rgba(0,0,0,0.75)]"
+          } backdrop-blur-[32px] backdrop-saturate-[200%] ${
             mobileMenuOpen
               ? "max-h-[380px] opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
               : "max-h-0 opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
           }`}
         >
-          <div className="px-6 py-5 space-y-3">
+          {/* Top Specular Rim */}
+          <div className="absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#7CF0A8]/60 to-transparent pointer-events-none" />
+
+          <div className="px-6 py-5 space-y-3 relative z-10">
             {NAV_LINKS.map((link, idx) => {
               const isActive = pathname === link.href;
               return (

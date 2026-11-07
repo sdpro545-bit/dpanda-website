@@ -27,7 +27,7 @@ export const SEED_RATES: GiftCardRate[] = [
     currency: "USD",
     minAmount: 25,
     maxAmount: 1000,
-    rateNgn: 1420,
+    rateNgn: 1330,
     note: "Instant code redemption",
     isActive: true,
     isSeed: true,

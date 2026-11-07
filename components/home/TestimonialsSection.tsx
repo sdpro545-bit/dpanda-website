@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import { Star, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
@@ -10,6 +11,7 @@ interface Testimonial {
   role: string;
   location: string;
   initials: string;
+  avatarUrl: string;
   tradeType: string;
   comment: string;
   rating: number;
@@ -22,6 +24,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Freelance Designer",
     location: "Lagos",
     initials: "CA",
+    avatarUrl: "/assets/testimonials/chioma-adeyemi.jpg",
     tradeType: "$200 Amazon Gift Card",
     comment:
       "I sold an Amazon card from an overseas client. The naira payout landed in my account within four minutes.",
@@ -33,6 +36,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Software Engineer",
     location: "Ibadan",
     initials: "TO",
+    avatarUrl: "/assets/testimonials/tunde-oladipo.jpg",
     tradeType: "450 USDT to NGN",
     comment:
       "Converted USDT directly to my GTBank account. The rate matched the live calculator with zero hidden deductions.",
@@ -44,6 +48,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Content Creator",
     location: "Abuja",
     initials: "ZB",
+    avatarUrl: "/assets/testimonials/zainab-bello.jpg",
     tradeType: "$150 Steam Card",
     comment:
       "Clean rate and polite trade desk response. My naira was paid promptly without any back and forth.",
@@ -55,6 +60,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Growth Lead",
     location: "Enugu",
     initials: "EE",
+    avatarUrl: "/assets/testimonials/emeka-eze.jpg",
     tradeType: "0.025 BTC",
     comment:
       "The best rate I have seen for Bitcoin. Fast settlement and clear confirmation right on WhatsApp.",
@@ -66,6 +72,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Product Manager",
     location: "Lagos",
     initials: "FB",
+    avatarUrl: "/assets/testimonials/femi-bakare.jpg",
     tradeType: "$100 Apple Gift Card",
     comment:
       "No tedious sign-up procedures. I checked the today's rate, tapped Trade Now, and completed the trade smoothly.",
@@ -77,6 +84,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Mobile Developer",
     location: "Port Harcourt",
     initials: "DA",
+    avatarUrl: "/assets/testimonials/daniel-alabi.jpg",
     tradeType: "12 SOL to NGN",
     comment:
       "Traded Solana during a market shift. The naira transfer arrived before I even closed my banking app.",
@@ -164,8 +172,14 @@ export const TestimonialsSection: React.FC = () => {
 
                   {/* Profile Footer */}
                   <div className="flex items-center gap-3 pt-3 border-t border-white/5">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-b from-[#184628] to-[#0A2414] border border-[#2FCB6E]/40 flex items-center justify-center font-heading font-semibold text-xs text-[#7CF0A8] shrink-0 shadow-inner">
-                      {item.initials}
+                    <div className="relative w-10 h-10 rounded-full border border-[#2FCB6E]/40 overflow-hidden shrink-0 shadow-inner bg-[#0A2414]">
+                      <Image
+                        src={item.avatarUrl}
+                        alt={item.name}
+                        fill
+                        sizes="40px"
+                        className="object-cover"
+                      />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
@@ -232,8 +246,14 @@ export const TestimonialsSection: React.FC = () => {
 
                     {/* Profile Footer */}
                     <div className="flex items-center gap-3 pt-3 border-t border-white/5">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-b from-[#184628] to-[#0A2414] border border-[#2FCB6E]/40 flex items-center justify-center font-heading font-semibold text-xs text-[#7CF0A8] shrink-0 shadow-inner">
-                        {item.initials}
+                      <div className="relative w-10 h-10 rounded-full border border-[#2FCB6E]/40 overflow-hidden shrink-0 shadow-inner bg-[#0A2414]">
+                        <Image
+                          src={item.avatarUrl}
+                          alt={item.name}
+                          fill
+                          sizes="40px"
+                          className="object-cover"
+                        />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-1.5">

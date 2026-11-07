@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { SITE_COPY } from "@/content/site";
 import { BRAND } from "@/config/brand";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -19,7 +20,26 @@ export default function HowItWorksPage() {
   )}`;
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16 md:py-24 space-y-20">
+    <div className="relative max-w-5xl mx-auto px-6 py-16 md:py-24 space-y-20">
+      {/* 3D Panda Seated with Phone Background Blend */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[340px] sm:w-[500px] h-[340px] sm:h-[500px] pointer-events-none select-none -z-10 overflow-hidden">
+        <div
+          className="relative w-full h-full opacity-[0.11] transform -translate-y-2"
+          style={{
+            maskImage: "radial-gradient(circle at 50% 45%, black 40%, transparent 75%)",
+            WebkitMaskImage: "radial-gradient(circle at 50% 45%, black 40%, transparent 75%)",
+          }}
+        >
+          <Image
+            src="/assets/3d/panda-seated-phone.webp"
+            alt="dPanda Seated Mascot"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+      </div>
+
       {/* Page Header */}
       <ScrollReveal className="text-center max-w-2xl mx-auto space-y-4">
         <Eyebrow>How It Works</Eyebrow>

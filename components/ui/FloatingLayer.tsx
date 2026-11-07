@@ -50,14 +50,14 @@ const FLOATING_ITEMS: FloatingItem[] = [
     isCryptoBox: true,
   },
 
-  // 2. Box 2 with 3D USDT Logo (Lower Right, below Today's rate CTA button)
+  // 2. Box 2 with 3D USDT Logo (Lower Right, right below Today's rate CTA button in hero)
   {
     id: "box-usdt",
     src: "/assets/3d/shape-diamond-2.webp",
     coinSrc: "/assets/3d/coin-usdt.webp",
     alt: "USDT 3D Box",
     layer: "near",
-    initialTop: "28%",
+    initialTop: "14%",
     initialRight: "1.5%",
     width: 112,
     height: 112,

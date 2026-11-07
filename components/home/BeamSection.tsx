@@ -53,7 +53,7 @@ export const BeamSection: React.FC = () => {
   const featuredRate = cardsData?.rates?.[0] || {
     cardName: "Amazon",
     variant: "US e-code",
-    rateNgn: 1420,
+    rateNgn: 1330,
     updatedAt: new Date().toISOString(),
   };
 
