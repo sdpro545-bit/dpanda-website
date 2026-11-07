@@ -2,6 +2,7 @@ import React from "react";
 import { FloatingLayer } from "@/components/ui/FloatingLayer";
 import { IntroBlock } from "@/components/home/IntroBlock";
 import { Carousel3D } from "@/components/home/Carousel3D";
+import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { BeamSection } from "@/components/home/BeamSection";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -21,6 +22,11 @@ export default function HomePage() {
         {/* Reference Part C: 3D Arc Carousel Centrepiece Calculator with Autoplay & Progress Bar */}
         <ScrollReveal delay={200}>
           <Carousel3D />
+        </ScrollReveal>
+
+        {/* What Our Clients Says about dPanda: Auto-switching Verified Testimonials */}
+        <ScrollReveal delay={250}>
+          <TestimonialsSection />
         </ScrollReveal>
       </div>
 
